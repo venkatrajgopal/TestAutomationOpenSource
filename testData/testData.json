@@ -2,7 +2,7 @@
   "expectedEntries": [
     {
       "text": "Assigned to Timesheet:Employee to \"complete task\" ",
-      "validateSequence": false
+      "validateSequence": true
     },
     {
       "text": "Assignment to \"complete task\" completed by performing a \"Log Work Hours\".",
