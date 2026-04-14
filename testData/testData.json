@@ -1,0 +1,16 @@
+{
+  "expectedEntries": [
+    {
+      "text": "Assigned to Timesheet:Employee to \"complete task\" ",
+      "validateSequence": false
+    },
+    {
+      "text": "Assignment to \"complete task\" completed by performing a \"Log Work Hours\".",
+      "validateSequence": true
+    },
+    {
+      "text": "Item created.",
+      "validateSequence": true
+    }
+  ]
+}

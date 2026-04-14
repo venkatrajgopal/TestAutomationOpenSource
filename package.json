@@ -1,0 +1,24 @@
+{
+  "name": "testautomation",
+  "version": "1.0.0",
+  "description": "OAuth API invocation test in TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test:api": "playwright test tests/STADecisionHistoryCheck.test.ts",
+    "test": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}
