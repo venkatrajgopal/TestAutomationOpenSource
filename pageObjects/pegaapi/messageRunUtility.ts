@@ -98,25 +98,64 @@ function parseJsonValue(text: string): JsonValue {
 	}
 }
 
-function extractJsonSegment(source: string, startMarker: string, endMarker?: string): string {
-	const startIndex = source.indexOf(startMarker);
+function extractJsonSegment(source: string, fromIndex: number): string {
+	let startIndex = -1;
+	for (let index = fromIndex; index < source.length; index += 1) {
+		const character = source[index];
+		if (character === "{" || character === "[") {
+			startIndex = index;
+			break;
+		}
+	}
+
 	if (startIndex < 0) {
-		throw new Error(`Unable to locate marker: ${startMarker}`);
+		throw new Error(`Unable to locate JSON payload after index ${fromIndex}.`);
 	}
 
-	const contentStart = startIndex + startMarker.length;
-	const contentEnd = endMarker ? source.indexOf(endMarker, contentStart) : source.length;
+	const openToken = source[startIndex];
+	const closeToken = openToken === "{" ? "}" : "]";
+	let depth = 0;
+	let inString = false;
+	let escaped = false;
 
-	if (contentEnd < 0) {
-		throw new Error(`Unable to locate end marker: ${endMarker}`);
+	for (let index = startIndex; index < source.length; index += 1) {
+		const character = source[index];
+
+		if (inString) {
+			if (escaped) {
+				escaped = false;
+			} else if (character === "\\") {
+				escaped = true;
+			} else if (character === '"') {
+				inString = false;
+			}
+
+			continue;
+		}
+
+		if (character === '"') {
+			inString = true;
+			continue;
+		}
+
+		if (character === openToken) {
+			depth += 1;
+			continue;
+		}
+
+		if (character === closeToken) {
+			depth -= 1;
+			if (depth === 0) {
+				return source.slice(startIndex, index + 1);
+			}
+
+			if (depth < 0) {
+				break;
+			}
+		}
 	}
 
-	const raw = source.slice(contentStart, contentEnd).trim();
-	if (raw.length === 0) {
-		throw new Error(`Empty JSON segment between ${startMarker} and ${endMarker ?? "end of message"}.`);
-	}
-
-	return raw.replace(/^:\s*/u, "");
+	throw new Error(`Unable to locate matching end for JSON payload starting at index ${startIndex}.`);
 }
 
 function parseDefaultMessage(message: string): StructuredMessage {
@@ -137,8 +176,22 @@ function parseDefaultMessage(message: string): StructuredMessage {
 
 	const requestMarker = "Request Body:";
 	const responseMarker = "Response Body:";
-	const requestBodyText = extractJsonSegment(trimmed, requestMarker, responseMarker);
-	const responseBodyText = extractJsonSegment(trimmed, responseMarker);
+	const requestMarkerIndex = trimmed.indexOf(requestMarker);
+	if (requestMarkerIndex < 0) {
+		throw new Error(`Unable to locate marker: ${requestMarker}`);
+	}
+
+	const responseMarkerIndex = trimmed.indexOf(responseMarker, requestMarkerIndex + requestMarker.length);
+	const requestBodyText = extractJsonSegment(trimmed, requestMarkerIndex + requestMarker.length);
+	let responseBodyText: string;
+	try {
+		const responseSearchIndex = responseMarkerIndex >= 0
+			? responseMarkerIndex + responseMarker.length
+			: requestMarkerIndex + requestMarker.length + requestBodyText.length;
+		responseBodyText = extractJsonSegment(trimmed, responseSearchIndex);
+	} catch {
+		responseBodyText = "{}";
+	}
 
 	return {
 		pageName,
