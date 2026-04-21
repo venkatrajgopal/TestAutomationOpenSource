@@ -1,0 +1,64 @@
+[
+  {
+    "testName": "Rusta och matcha 2 (ROM2)",
+    "personnr": "19700324-3255",
+    "referenceWorkerID": "300024990",
+    "errandNumber": "EXC-18004",
+    "kaNumberValue": "10013013",
+    "name": "Kalle Karlsson",
+    "workerId": "0",
+    "runId": "run-20260311165314-bcqb",
+    "timestamp": "2026-03-11T16:53:14Z"
+  },
+  {
+    "testName": "Rusta och matcha 2 (ROM2)",
+    "personnr": "19700324-3255",
+    "referenceWorkerID": "300025081",
+    "errandNumber": "EXC-18047",
+    "kaNumberValue": "10013013",
+    "name": "Kalle Karlsson",
+    "workerId": "0",
+    "runId": "run-20260313133549-3d5ww",
+    "timestamp": "2026-03-13T13:35:49Z"
+  },
+  {
+    "testName": "Rusta och matcha 2 (ROM2)",
+    "personnr": "19700324-3255",
+    "referenceWorkerID": "300025094",
+    "errandNumber": "EXC-18053",
+    "kaNumberValue": "10013013",
+    "name": "Kalle Karlsson",
+    "workerId": "0",
+    "runId": "run-20260313155239-c6006",
+    "timestamp": "2026-03-13T15:52:39Z",
+    "decisionID": "BOI-12345"
+  },
+  {
+    "testName": "Rusta och matcha 2 (ROM2)",
+    "personnr": "19700324-3255",
+    "referenceWorkerID": "300025094",
+    "errandNumber": "EXC-18053",
+    "kaNumberValue": "10013013",
+    "name": "Kalle Karlsson",
+    "workerId": "0",
+    "runId": "run-20260313155239-c6006",
+    "timestamp": "2026-03-13T15:52:39Z",
+    "decisionID": "BOI-26320"
+  },
+  {
+    "testName": "Rusta och matcha 2 (ROM2)",
+    "personnr": "19700324-3255",
+    "referenceWorkerID": "300025094",
+    "errandNumber": "EXC-18053",
+    "kaNumberValue": "10013013",
+    "name": "Kalle Karlsson",
+    "workerId": "0",
+    "runId": "run-1776783528548",
+    "timestamp": "2026-04-21T14:58:48.548Z",
+    "decisionID": "T-7",
+    "status": "Pending-EndOfPeriod",
+    "SupportTypeName": "Rusta och Matcha 2",
+    "CaseStatus": "NYF",
+    "AvropBusinessCaseId": "A000001591635"
+  }
+]

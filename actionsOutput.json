@@ -50,5 +50,71 @@
         "ID": "pyChangeStage"
       }
     ]
+  },
+  {
+    "id": "4b46286f-f506-4b5b-a7b7-7e1741a16065",
+    "results": []
+  },
+  {
+    "id": "0e255cdf-60f1-4a73-8487-34628f17b0c5",
+    "results": {
+      "caseTypeID": "AF-Services-BOT-Work-Execution",
+      "status": "Pending-EndOfPeriod",
+      "urgency": "10",
+      "content": {
+        "BusinessCaseId": "A000001591601",
+        "pzInsKey": "AF-SERVICES-BOT-WORK EXC-10387",
+        "RegistrationNumber": "AF-2026/0003 0226",
+        "pySatisfactionChangeTimestamp": "2026-03-30T09:35:00.538Z",
+        "stodType": "ROM2",
+        "ActivityIdList": [],
+        "BusinessCase": {
+          "Classification": "Beslut om stöd",
+          "pxObjClass": "AF-Data-BusinessCase",
+          "CaseType": {
+            "Name": "Förmedlingsinsatser",
+            "pxObjClass": "AF-Data-BusinessType",
+            "ShortName": "FIN"
+          }
+        },
+        "SupportType": {
+          "Name": "Rusta och Matcha 2",
+          "pxObjClass": "AF-Data-BusinessType",
+          "ShortName": "ROM2"
+        },
+        "BusinessCaseClassification": [
+          {
+            "BusinessCaseClassificationPlan": "13.7.1 Utveckla arbetssökandes förmågor",
+            "PYID": "AF-2026/0003 0226",
+            "PYURLContent": "https://diariet-test.arbetsformedlingen.se/diarie/sok?aktNr=AF-2026/0003 0226"
+          }
+        ],
+        "CaseDetails": {
+          "caseStatus": "NYF",
+          "supportTypeCode": "ROM2",
+          "AvropList": [
+            {
+              "AvropBusinessCaseId": "A000001591635",
+              "PriceFactor": {
+                "pxObjClass": "AF-Services-Data-PriceFactor",
+                "pyValue": "1",
+                "Scope": "100"
+              }
+            },
+            {
+              "VendorName": "Acamedia Educatus AB",
+              "VendorOrg": "5565274007",
+              "PriceFactor": {
+                "pyValue": "1",
+                "Scope": "100"
+              }
+            }
+          ]
+        },
+        "Decision": {
+          "Decision": "Beslut om ny period"
+        }
+      }
+    }
   }
 ]

@@ -6,6 +6,11 @@
   "scripts": {
     "build": "tsc --noEmit",
     "test:api": "playwright test tests/STADecisionHistoryCheck.test.ts",
+    "test:sta:case": "playwright test tests/STA/PegaCaseActionsAppend.test.ts",
+    "test:sta:history": "playwright test tests/STA/STADecisionHistoryCheck.test.ts",
+    "test:sta:flow": "npm run test:sta:case && npm run test:sta:history",
+    "test:sta:flow:with-wait": "npm run test:sta:case && node -e \"setTimeout(() => {}, 60000)\" && npm run test:sta:history",
+    "test:sta:decision-status": "playwright test tests/testResultSTAAppender.test.ts && playwright test tests/PegaMapDecisionStatus.test.ts",
     "test": "playwright test"
   },
   "keywords": [],
