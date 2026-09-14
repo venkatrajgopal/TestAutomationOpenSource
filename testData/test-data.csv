@@ -1,0 +1,5 @@
+Id,Long Description,Other
+1,"Customer Af account 12345. Contact: 070-1234567","meta"
+2,"Transaction details: amount 4500, ref 98765","meta"
+3,"{""nested"": {""num"": 555, ""note"": "Contains Af and numbers 42"}}","meta"
+4,"No sensitive info here","meta"
